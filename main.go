@@ -9,7 +9,7 @@ import (
 )
 
 var dir = flag.String("d", "./template/init.cpp", "директория шаблона.")
-var ext = flag.String("e", "cpp", "расширение файлов.")
+var ext = flag.String("e", "", "расширение файлов.")
 
 type Env struct {
     DirTo, DirFrom, Ext, Content string
@@ -34,8 +34,12 @@ func parseEnv() Env {
         flag.PrintDefaults()
         os.Exit(2)
     }
-
-    env.DirFrom, env.Ext = *dir, *ext
+    if *ext == "" {
+        env.Ext = parseExt(*dir)
+    } else {
+        env.Ext = *ext
+    }
+    env.DirFrom = *dir
     env.DirTo, env.Names = flag.Args()[0], flag.Args()[1:]
     for strings.HasSuffix(env.DirTo, "/") && len(env.DirTo) > 0 {
         env.DirTo = env.DirTo[:len(env.DirTo)-1]
@@ -52,6 +56,15 @@ func parseEnv() Env {
     return env
 }
 
+func parseExt(name string) string {
+    for i := len(name)-1; i >= 0; i-- {
+        if name[i] == '.' {
+            return name[i+1:]
+        }
+    }
+    return "cpp"
+}
+
 func mkenv(env *Env) {
     err := os.MkdirAll(env.DirTo, 0750)
     if err != nil {
@@ -61,7 +74,7 @@ func mkenv(env *Env) {
     }
 
     for _, file := range env.Names {
-        path := env.DirTo + "/" + file + "." + *ext
+        path := env.DirTo + "/" + file + "." + env.Ext
         desc, err := os.Create(path)
         if err != nil {
             fmt.Fprintf(os.Stderr, "mkenv: failed to create file \"%s\"\n", path)
