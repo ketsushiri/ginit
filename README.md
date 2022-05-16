@@ -5,7 +5,7 @@
 ```bash
 $ git clone https://github.com/ketsushiri/ginit.git
 $ cd ginit
-$ go build -o ginit main.go
+$ go build
 ```
 
 ## Usage
