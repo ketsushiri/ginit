@@ -3,7 +3,7 @@
 
 ## Build 
 ```bash
-$ git clone https://github.com/ketsushiri/ginit.git
+$ git clone https://github.com/kvrumi/ginit.git
 $ cd ginit
 $ go build
 ```
