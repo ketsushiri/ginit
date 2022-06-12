@@ -1,5 +1,5 @@
 # ginit
-[This utility](https://github.com/ketsushiri/contest-init) rewritten in Go for practice purpose. Initialize some files by template. Will work also on windows (maybe).
+[This utility](https://github.com/kvrumi/contest-init) rewritten in Go for practice purpose. Initialize some files by template. Will work also on windows (maybe).
 
 ## Build 
 ```bash
