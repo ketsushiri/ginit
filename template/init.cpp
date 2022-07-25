@@ -1,5 +1,4 @@
-#pragma GCC optimize("O3")
-
+#pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 template<class T>
 using V = std::vector<T>;
