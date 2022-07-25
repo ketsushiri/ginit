@@ -1,23 +1,21 @@
-#pragma GCC optimize("O2")
+#pragma GCC optimize("O3")
 #include <bits/stdc++.h>
-template<class T>
-using V = std::vector<T>;
-using namespace std;
 #define endl "\n"
 #define pb push_back
-#define all(x) x.begin(),x.end()
-#define ANS ((int)1e9+7)
+#define all(x) (x).begin(), (x).end()
 
+template<typename T> 
+using V = std::vector<T>;
+using namespace std;
 
 void solve() {
-    //...
+    // ... 
 }
 
-signed main(void)
+signed main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     solve();
     return 0;
